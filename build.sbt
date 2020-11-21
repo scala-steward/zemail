@@ -1,5 +1,5 @@
 val zioVersion          = "1.0.3"
-val courierVersion      = "3.0.0-M1"
+val courierVersion      = "3.0.0-RC1"
 val mockJavamailVersion = "1.9"
 
 ThisBuild / scalaVersion := "2.13.3"
