@@ -2,8 +2,7 @@ package zemail
 
 import zio.{Has, RIO, ZIO, ZLayer}
 
-import courier.Mailer
-import courier.Envelope
+import courier.{Envelope, Mailer}
 
 package object email {
   type Email = Has[Mailer]

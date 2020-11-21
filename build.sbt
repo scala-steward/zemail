@@ -1,6 +1,7 @@
-val zioVersion          = "1.0.3"
-val courierVersion      = "3.0.0-RC1"
-val mockJavamailVersion = "1.9"
+val zioVersion             = "1.0.3"
+val courierVersion         = "3.0.0-RC1"
+val mockJavamailVersion    = "1.9"
+val organizeImportsVersion = "0.4.4"
 
 ThisBuild / scalaVersion := "2.13.3"
 ThisBuild / scalacOptions += "-Wunused:imports"
@@ -69,6 +70,7 @@ ThisBuild / githubWorkflowBuildPostamble := Seq(
 
 ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
+ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % organizeImportsVersion
 
 lazy val root = (project in file("."))
   .settings(

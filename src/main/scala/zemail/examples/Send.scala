@@ -1,13 +1,11 @@
 package zemail.examples
 
-import courier.Mailer
-
 import zio.{App, ExitCode}
 
 import zemail.email
 import zemail.email.MailerOps
 
-import courier._
+import courier.{Mailer, _}
 
 object Send extends App {
   val envelop = Envelope
