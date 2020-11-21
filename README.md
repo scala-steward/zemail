@@ -10,10 +10,49 @@ A ZIO friendly library to send Email using Courier.
 
 - You need to send emails using ZIO
 
-## Using zemail
+## Using Zemail
 
-This is still WIP !
+The latest version is 0.1.0, which is avaible for scala 2.13.
+
+If you're using sbt, add the following to your build:
+
+```bash
+libraryDependencies ++= Seq(
+  "dev.doamaral" %% "zemail" % "0.1.0"
+)
+```
 
 ## How it works
 
-This is still WIP !
+Here is a sample to send an email:
+
+```scala
+import zio.{App, ExitCode}
+
+import zemail.email
+import zemail.email.MailerOps
+
+import courier.{Mailer, _}
+
+object Send extends App {
+  val envelop = Envelope
+    .from("zemail" `@` "gmail.com")
+    .to("zinteract" `@` "gmail.com")
+    .subject("Zemail")
+    .content(Text("Hi from zemail !"))
+
+  val app = for {
+    _ <- email.send(envelop)
+  } yield ()
+
+  val builder = Mailer("smtp.gmail.com", 587)
+    .auth(true)
+    .as("zemail@gmail.com", "mypassword")
+    .startTls(true)()
+
+  override def run(args: List[String]): zio.URIO[zio.ZEnv, ExitCode] =
+    app
+      .provideLayer(builder.buildLayer)
+      .exitCode
+}
+```
