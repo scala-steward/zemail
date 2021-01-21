@@ -1,4 +1,4 @@
-val zioVersion             = "1.0.3"
+val zioVersion             = "1.0.4"
 val courierVersion         = "3.0.0-RC1"
 val mockJavamailVersion    = "1.9"
 val organizeImportsVersion = "0.4.4"
