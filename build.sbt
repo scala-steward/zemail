@@ -1,7 +1,7 @@
 val zioVersion             = "1.0.4"
 val courierVersion         = "3.0.0-RC1"
 val mockJavamailVersion    = "1.9"
-val organizeImportsVersion = "0.4.4"
+val organizeImportsVersion = "0.5.0"
 
 ThisBuild / scalaVersion := "2.13.3"
 ThisBuild / scalacOptions += "-Wunused:imports"
